@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
+const helmet = require('helmet');
 require('dotenv').config();
 
 const app = express();
@@ -13,6 +14,7 @@ const areaRoutes = require('./routes/area.routes');
 app.set('port', process.env.PORT || 4000);
 
 //middlewares
+app.use(helmet());
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(cors());
