@@ -50,7 +50,6 @@ function putUser(connection, data, id ,callback){
     fecha_nacimiento = '${data.fecha_nacimiento}', email = '${data.email}', area = ${data.area},
     salario = ${data.salario}, estado = ${data.estado} WHERE idusuarios = ${id}
     `;
-    console.log(query)
     connection.query(query, function(err, result) {
         if(err){
             throw err;

@@ -50,7 +50,7 @@ router.put('/users/update/:id', async (req, res) => {
     });
 });
 
-router.delete('/user/:id', async (req, res) => {
+router.delete('/user/delete/:id', async (req, res) => {
     deleteUser(conection, req.params.id ,(result) => {
         res.json(result);
     });
