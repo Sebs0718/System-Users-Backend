@@ -18,7 +18,7 @@ conection.connect((error) => {
     }
 });
 
-const { getAreas } = require('../models/area');
+const { getAreas, getArea, postArea, putArea, deleteArea } = require('../models/area');
 
 router.get('/area/get-areas', async (req, res) => {
     getAreas(conection, (result) => {
@@ -26,5 +26,28 @@ router.get('/area/get-areas', async (req, res) => {
     });
 });
 
+router.get('/area/:id', async (req, res) => {
+    getArea(conection, req.params.id ,(result) => {
+        res.json(result);
+    });
+});
+
+router.post('/area/save', async (req, res) => {
+    postArea(conection, req.body ,(result) => {
+        res.json(result);
+    });
+});
+
+router.put('/area/update/:id', async (req, res) => {
+    putArea(conection, req.body, req.params.id, (result) => {
+        res.json(result);
+    });
+});
+
+router.delete('/area/delete/:id', async (req, res) => {
+    deleteArea(conection, req.params.id ,(result) => {
+        res.json(result);
+    });
+});
 
 module.exports = router ;
